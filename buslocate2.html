@@ -1,0 +1,86 @@
+<!DOCTYPE html> 
+<html lang="ko"> 
+
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+    <title>jquery - 이벤트</title> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    
+</head> 
+
+<body> 
+    <header> 
+        <h1>jquery Ajax</h1> 
+        <h1>노선1</h1>
+    </header> 
+
+    
+    <div id="container"> 
+        <div id="result"></div> 
+        <ul id="users"></ul> 
+    </div> 
+
+<!--<p id="text1">노선1</p>-->    
+    <script> 
+        $.ajax({ 
+            method: 'GET',
+            url: 'http://openapi.tago.go.kr/openapi/service/BusLcInfoInqireService/getRouteAcctoBusLcList?ServiceKey=NJPq5bgNwTn08ylVVjGuBpmtiwARPqc%2BUR4WPrIf5advbjU9WA1RrL1SIMjKUNhRHh2fKE8QOVUpf6%2FBu9lCpA%3D%3D&cityCode=33020&routeId=CHB272000376', 
+            dataType: 'json' 
+        }).done(function (data) { 
+            console.log(data); 
+            
+            $.each(data, function (i, item) { 
+                $('#result').append(`<h3>${item.nodenm}</h3>`) 
+            }); 
+
+            //var wbus = document.getElementById("text1");//document.write(data);
+            //wbus.innerHTML = data;
+        });  
+
+    </script> 
+<!--
+    <p id="text2">노선2</p>
+    
+    <script> 
+        $.ajax({ 
+            method: 'GET',
+            url: 'http://openapi.tago.go.kr/openapi/service/BusLcInfoInqireService/getRouteAcctoBusLcList?ServiceKey=NJPq5bgNwTn08ylVVjGuBpmtiwARPqc%2BUR4WPrIf5advbjU9WA1RrL1SIMjKUNhRHh2fKE8QOVUpf6%2FBu9lCpA%3D%3D&cityCode=33020&routeId=CHB272000377', 
+            dataType: 'json' 
+        }).done(function (data) { 
+            console.log(data); 
+            
+            $.each(data, function (i, item) { 
+                $('#result').append(`<h4>${item.nodenm}</h4>`) 
+            }); 
+
+            var wbus = document.getElementById("text2");//document.write(data);
+            wbus.innerHTML = data;
+        });  
+
+    </script> 
+
+    <p id="text3">노선3</p>
+    
+    <script> 
+        $.ajax({ 
+            method: 'GET',
+            url: 'http://openapi.tago.go.kr/openapi/service/BusLcInfoInqireService/getRouteAcctoBusLcList?ServiceKey=NJPq5bgNwTn08ylVVjGuBpmtiwARPqc%2BUR4WPrIf5advbjU9WA1RrL1SIMjKUNhRHh2fKE8QOVUpf6%2FBu9lCpA%3D%3D&cityCode=33020&routeId=CHB272000643', 
+            dataType: 'json' 
+        }).done(function (data) { 
+            console.log(data); 
+            
+            $.each(data, function (i, item) { 
+                $('#result').append(`<h5>${item.nodenm}</h5>`) 
+            }); 
+
+            var wbus = document.getElementById("text3");//document.write(data);
+            wbus.innerHTML = data;
+        });  
+
+    </script> 
+-->
+</body> 
+
+</html>
