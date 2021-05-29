@@ -16,13 +16,16 @@
         <h1>노선1</h1>
     </header> 
 
-    
+    <b> <? 
+	header("Content-Type: application/xml"); 
+	header("Access-Control-Allow-Origin: *”); ?> </b>
+
     <div id="container"> 
         <div id="result"></div> 
         <ul id="users"></ul> 
     </div> 
 
-<!--<p id="text1">노선1</p>-->    
+    <p id="text1">노선1</p> 
     <script> 
         $.ajax({ 
             method: 'GET',
@@ -35,12 +38,12 @@
                 $('#result').append(`<h3>${item.nodenm}</h3>`) 
             }); 
 
-            //var wbus = document.getElementById("text1");//document.write(data);
-            //wbus.innerHTML = data;
+            var wbus = document.getElementById("text1");//document.write(data);
+            wbus.innerHTML = data;
         });  
 
     </script> 
-<!--
+
     <p id="text2">노선2</p>
     
     <script> 
@@ -80,7 +83,7 @@
         });  
 
     </script> 
--->
+
 </body> 
 
 </html>
